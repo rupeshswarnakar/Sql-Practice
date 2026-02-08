@@ -62,10 +62,12 @@ Output:
 ```
 
 ## Solution 1
+```
 SELECT E.name, B.bonus
 FROM EMPLOYEE  AS E LEFT JOIN BONUS AS B
 ON E.empId = B.empId
 WHERE B.bonus < 1000 OR B.bonus IS NULL;
+```
 
 ## Question 2:
 ```Table: Customer
@@ -108,8 +110,10 @@ Output:
 ```
 
 ## Solution 2:
+```
 SELECT name FROM Customer
 WHERE referee_id != 2 OR referee_id IS NULL;
+```
 
 ## Question 3:
 ```
@@ -157,9 +161,11 @@ Explanation:
 ```
  
 ## Solution 3:
+```
 SELECT class FROM Courses
 GROUP BY class
 HAVING  COUNT(class) >= 5;
+```
 
 ## Question 4:
 ```Table: SalesPerson
@@ -248,6 +254,7 @@ Output:
 ```
 
 ## Solution 4:
+```
 SELECT s.name
 FROM SalesPerson s
 WHERE NOT EXISTS (
@@ -257,4 +264,4 @@ WHERE NOT EXISTS (
   WHERE o.sales_id = s.sales_id
     AND c.name = 'RED'
 );
- 
+```
