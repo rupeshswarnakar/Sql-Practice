@@ -4,7 +4,7 @@ This repository contains SQL questions and solutions practiced during self-study
 The focus is on joins, subqueries, aggregation, and filtering.
 
 ## Question 1:
-Table: Employee
+```Table: Employee
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -59,6 +59,7 @@ Output:
 | John | null  |
 | Dan  | 500   |
 +------+-------+
+```
 
 ## Solution 1
 SELECT E.name, B.bonus
@@ -67,7 +68,7 @@ ON E.empId = B.empId
 WHERE B.bonus < 1000 OR B.bonus IS NULL;
 
 ## Question 2:
-Table: Customer
+```Table: Customer
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -104,12 +105,14 @@ Output:
 | Bill |
 | Zack |
 +------+
+```
 
 ## Solution 2:
 SELECT name FROM Customer
 WHERE referee_id != 2 OR referee_id IS NULL;
 
 ## Question 3:
+```
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -151,6 +154,7 @@ Explanation:
 - English has 1 student, so we do not include it.
 - Biology has 1 student, so we do not include it.
 - Computer has 1 student, so we do not include it.
+```
  
 ## Solution 3:
 SELECT class FROM Courses
@@ -158,7 +162,7 @@ GROUP BY class
 HAVING  COUNT(class) >= 5;
 
 ## Question 4:
-Table: SalesPerson
+```Table: SalesPerson
 +-----------------+---------+
 | Column Name     | Type    |
 +-----------------+---------+
@@ -241,6 +245,7 @@ Output:
 | Amy  |
 | Mark |
 | Alex |
+```
 
 ## Solution 4:
 SELECT s.name
