@@ -315,3 +315,30 @@ FROM Orders
 GROUP BY customer_id
 HAVING COUNT(customer_id) > 1
 ```
+## Question 7:
+```
+Table: Orders
+
++----------+-------------+------------+--------+
+| order_id | customer_id | order_date | amount |
++----------+-------------+------------+--------+
+| 1        | 101         | 2023-01-01 | 500    |
+| 2        | 102         | 2023-01-02 | 300    |
+| 3        | 101         | 2023-01-03 | 200    |
+| 4        | 103         | 2023-01-04 | 400    |
+| 5        | 101         | 2023-01-05 | 150    |
+| 6        | 102         | 2023-01-06 | 100    |
++----------+-------------+------------+--------+
+
+Question:
+Write an SQL query to return the customer_id and total_amount
+for customers whose total order amount is greater than 500.
+```
+
+## Solution 7:
+```
+SELECT customer_id, SUM(amount)
+FROM Orders
+GROUP BY customer_id
+HAVING SUM(amount) > 500;
+```
