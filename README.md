@@ -265,3 +265,53 @@ WHERE NOT EXISTS (
     AND c.name = 'RED'
 );
 ```
+
+## Question 5:
+```
+Table: Orders
+
++----------+-------------+--------+
+| order_id | customer_id | amount |
++----------+-------------+--------+
+| 1        | 101         | 500    |
+| 2        | 102         | 300    |
+| 3        | 101         | 200    |
+| 4        | 103         | 400    |
++----------+-------------+--------+
+
+Question:
+Write an SQL query to return the total order amount for each customer.
+```
+
+## Solution 5:
+```
+SELECT customer_id, SUM(amount)
+FROM Orders
+GROUP BY customer_id;
+```
+
+## Question 6:
+```
+Table: Orders
+
++----------+-------------+------------+
+| order_id | customer_id | order_date |
++----------+-------------+------------+
+| 1        | 101         | 2023-01-01 |
+| 2        | 102         | 2023-01-02 |
+| 3        | 101         | 2023-01-03 |
+| 4        | 103         | 2023-01-04 |
+| 5        | 101         | 2023-01-05 |
++----------+-------------+------------+
+
+Question:
+Write an SQL query to return the customer_id values for customers who placed more than one order.
+```
+
+## Solution 6:
+```
+SELECT customer_id
+FROM Orders
+GROUP BY customer_id
+HAVING COUNT(customer_id) > 1
+```
