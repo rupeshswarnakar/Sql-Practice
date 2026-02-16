@@ -342,3 +342,62 @@ FROM Orders
 GROUP BY customer_id
 HAVING SUM(amount) > 500;
 ```
+## Question 8:
+```
+Find the Second Highest Salary
+Table: employees
+id	name	salary
+1	Alice	90000
+2	Bob	85000
+3	Charlie	85000
+4	David	80000
+5	Eva	70000
+Requirement:
+ Write a SQL query to find the second highest distinct salary.
+Expected Output:
+second_highest_saly
+85000
+```
+
+ ## Solution 8:
+ ```
+SELECT salary
+FROM (
+SELECT salary,
+RANK ( ) OVER (ORDER BY salary DESC) AS salary_rank
+FROM employees
+) t
+WHERE salary_rank = 2;
+```
+## Question 9:
+```
+customers
+customer_id	customer_name
+1	Alice
+2	Bob
+3	Charlie
+orders
+order_id	customer_id	amount
+1	1	200
+2	2	150
+Write a SQL query to find customers who have not placed any orders.
+Expected Output:
+customer_nae
+Charlie
+```
+
+## Solution 9:
+```
+SELECT customers.customer_name
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id
+WHERE orders_id IS NULL;
+```
+
+
+
+
+
+
+
