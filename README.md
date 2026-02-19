@@ -3,6 +3,50 @@
 This repository contains SQL questions and solutions practiced during self-study.
 The focus is on joins, subqueries, aggregation, and filtering.
 
+## Quick References:
+```
+**Logical order SQL runs:**
+
+1. FROM  
+2. WHERE  
+3. GROUP BY  
+4. HAVING  
+5. SELECT  
+6. ORDER BY  
+7. LIMIT
+
+👉 Aggregation functions (SUM, COUNT, AVG, MAX, MIN):
+	•	Go in SELECT
+	•	Go in HAVING
+	•	❌ Do NOT go in WHERE
+👉 DISTINCT is written in the SELECT clause
+```
+
+## Quick Examples:
+```
+SELECT *
+FROM patient_visits
+WHERE cost > 500;
+
+SELECT
+    patient_id,
+    COUNT(*) AS visit_count
+FROM patient_visits
+GROUP BY patient_id
+HAVING COUNT(*) > 2;
+
+SELECT DISTINCT patient_id
+FROM patient_visits;
+
+SELECT
+    emp_id,
+    dept,
+    salary,
+    RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS dept_rank
+FROM employee_salary;
+```
+
+
 ## Question 1:
 ```Table: Employee
 +-------------+---------+
