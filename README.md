@@ -15,11 +15,11 @@ Logical order SQL runs:
 6. ORDER BY  
 7. LIMIT
 
-👉 Aggregation functions (SUM, COUNT, AVG, MAX, MIN):
+🧠 Aggregation functions (SUM, COUNT, AVG, MAX, MIN):
 	•	Go in SELECT
 	•	Go in HAVING
-	•	❌ Do NOT go in WHERE
-👉 DISTINCT is written in the SELECT clause
+	•	Do NOT go in WHERE
+🧠 DISTINCT is written in the SELECT clause
 ```
 
 ## Quick Examples:
