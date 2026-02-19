@@ -5,7 +5,7 @@ The focus is on joins, subqueries, aggregation, and filtering.
 
 ## Quick References:
 ```
-**Logical order SQL runs:**
+Logical order SQL runs:
 
 1. FROM  
 2. WHERE  
