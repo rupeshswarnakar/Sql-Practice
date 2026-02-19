@@ -394,7 +394,38 @@ LEFT JOIN orders
 ON customers.customer_id = orders.customer_id
 WHERE orders_id IS NULL;
 ```
+## Question 10:
+```
+## Patient Visits Sample Data
 
+| patient_id | visit_date | cost |
+|------------|------------|------|
+| P101 | 2026-01-25 | 400 |
+| P101 | 2026-02-05 | 700 |
+| P101 | 2025-12-20 | 900 |
+| P102 | 2026-02-01 | 1200 |
+| P102 | 2026-02-10 | 1500 |
+| P103 | 2026-01-15 | 300 |
+| P103 | 2026-02-12 | 200 |
+| P104 | 2025-11-01 | 500 |
+
+Assume today = 2026-02-15
+
+Find:
+- Each patient’s total cost in the last 30 days
+-  Only include patients with total cost > 1000
+- Sort by total cost descending
+
+```
+## Solution 10:
+```
+SELECT patient_id, SUM(cost) AS total_cost
+FROM patient_visits
+WHERE visit_date > '2026-1-15'
+GROUP BY patient_id
+HAVING SUM(cost) > 1000
+ORDER BY total_cost DESC;
+```
 
 
 
