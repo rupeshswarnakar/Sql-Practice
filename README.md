@@ -519,5 +519,32 @@ WHERE rnk = 1;
 Explanation:
 RANK() assigns ranking within each category.
 ```
+## Question 13:
+```
+Find Users Who Purchased but Never Logged In
 
+Table: user_events
+user_id | event_type
+1 | login
+1 | purchase
+2 | purchase
+3 | login
+4 | purchase
 
+Problem:
+Find users who made a purchase but never logged in.
+```
+## Solution 13:
+```
+SELECT DISTINCT user_id
+FROM user_events
+WHERE event_type = ‘purchase’
+AND user_id NOT IN (
+SELECT user_id
+FROM user_events
+WHERE event_type = ‘login’
+);
+
+Explanation:
+This selects users who purchased but excludes users who logged in.
+```
