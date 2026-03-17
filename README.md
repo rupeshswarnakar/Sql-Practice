@@ -475,7 +475,6 @@ ORDER BY total_cost DESC;
 Find Daily Active Users
 
 Table: user_events
-
 user_id | event_date | event_type
 1 | 2025-01-01 | login
 2 | 2025-01-01 | click
@@ -496,7 +495,29 @@ ORDER BY event_date;
 Explanation:
 COUNT(DISTINCT user_id) counts unique users per day.
 ```
+## Question 12:
+```
+Find Top Product by Revenue Per Category
 
+Table: product_sales
+product_id | category | revenue
+101 | Electronics | 500
+102 | Electronics | 700
+201 | Clothing | 300
+202 | Clothing | 450
 
+Problem:
+Find the product generating the highest revenue in each category.
+```
+## Solution 12:
+```
+SELECT product_id, category, revenue
+FROM (SELECT product_id, category, revenue, RANK() OVER (PARTITION BY category ORDER BY revenue DESC) AS rnk
+FROM product_sales) ranked_products
+WHERE rnk = 1;
+
+Explanation:
+RANK() assigns ranking within each category.
+```
 
 
