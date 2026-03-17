@@ -470,8 +470,32 @@ GROUP BY patient_id
 HAVING SUM(cost) > 1000
 ORDER BY total_cost DESC;
 ```
+## Question 11:
+```
+Find Daily Active Users
 
+Table: user_events
 
+user_id | event_date | event_type
+1 | 2025-01-01 | login
+2 | 2025-01-01 | click
+1 | 2025-01-02 | purchase
+3 | 2025-01-02 | login
+
+Problem:
+Write a SQL query to find the number of distinct active users per day.
+```
+
+## Solution 10:
+```
+SELECT event_date, COUNT(DISTINCT user_id) AS daily_active_users
+FROM user_events
+GROUP BY event_date
+ORDER BY event_date;
+
+Explanation:
+COUNT(DISTINCT user_id) counts unique users per day.
+```
 
 
 
