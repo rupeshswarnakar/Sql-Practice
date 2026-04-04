@@ -567,3 +567,29 @@ FROM (
 ) t
 WHERE rnk = 2;
 ```
+## Conceptual: ROW NUMBER () vs RANK() vs DENSE_RANK()
+```
+Example salaries: 100, 90, 90, 80
+
+ROW NUMBER()
+	•	100 → 1
+	•	90 → 2
+	•	90 → 3
+	•	80 → 4
+
+RANK()
+	•	100 → 1
+	•	90 → 2
+	•	90 → 2
+	•	80 → 4
+
+DENSE_RANK()
+	•	100 → 1
+	•	90 → 2
+	•	90 → 2
+	•	80 → 3
+
+Key difference
+	•	RANK() skips numbers after ties.
+	•	DENSE_RANK() does not skip after ties.
+	•	ROW NUMBER() basically counts numbers.
