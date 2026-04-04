@@ -604,4 +604,7 @@ SELECT
         ELSE 'High'
     END AS category
 FROM transactions;
+
+Key point:
+	•	CASE is used for business logic inside SQL.
 ```
