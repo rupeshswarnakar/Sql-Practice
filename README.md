@@ -593,3 +593,15 @@ Key difference
 	•	RANK() skips numbers after ties.
 	•	DENSE_RANK() does not skip after ties.
 	•	ROW NUMBER() basically counts numbers.
+```
+## Categorize amount using CASE WHEN
+```
+SELECT
+    amount,
+    CASE
+        WHEN amount < 100 THEN 'Low'
+        WHEN amount BETWEEN 100 AND 500 THEN 'Medium'
+        ELSE 'High'
+    END AS category
+FROM transactions;
+```
