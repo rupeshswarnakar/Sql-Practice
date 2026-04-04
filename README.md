@@ -548,3 +548,22 @@ WHERE event_type = ‘login’
 Explanation:
 This selects users who purchased but excludes users who logged in.
 ```
+## Find second highest salary?
+```
+SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary < (
+    SELECT MAX(salary) FROM employees
+);
+
+OR,
+
+SELECT salary
+FROM (
+    SELECT
+        salary,
+        DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM employees
+) t
+WHERE rnk = 2;
+```
