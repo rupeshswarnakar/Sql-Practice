@@ -3,11 +3,15 @@
 This repository contains SQL questions and solutions practiced during self-study alongwith few conecpts of SQL commands.
 The focus is on joins, subqueries, aggregation, and filtering.
 
+Having vs Where
+- A HAVING clause is like a WHERE clause, but applies only to groups as a whole (that is, to the rows in the result set representing groups). Having clause applies after Aggregation.
+- A WHERE clause applies to individual rows. A query can contain both a WHERE clause and a HAVING clause. Where clause applies before aggregation.
+
+
+
 What is the difference between DROP and TRUNCATE statements?
 - If a table is dropped, all things associated with the tables are dropped as well. This includes - the relationships defined on the table with other tables, the integrity checks and constraints, access privileges and other grants that the table has.
 - To create and use the table again in its original form, all these relations, checks, constraints, privileges and relationships need to be redefined. However, if a table is truncated, none of the above problems exist and the table retains its original structure.
-
-
 
 What is the difference between DELETE and TRUNCATE statements?
 - The TRUNCATE command is used to delete all the rows from the table and free the space containing the table.
